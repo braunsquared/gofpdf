@@ -1618,9 +1618,10 @@ func (f *Fpdf) SetFont(familyStr, styleStr string, size float64) {
 		size = f.fontSizePt
 	}
 	// Test if font is already selected
-	if f.fontFamily == familyStr && f.fontStyle == styleStr && f.fontSizePt == size {
-		return
-	}
+	// braunsquared: Removed due to issue with font not being set after some transform operations.
+	//if f.fontFamily == familyStr && f.fontStyle == styleStr && f.fontSizePt == size {
+	//	return
+	//}
 	// Test if font is already loaded
 	fontkey := familyStr + styleStr
 	_, ok = f.fonts[fontkey]
